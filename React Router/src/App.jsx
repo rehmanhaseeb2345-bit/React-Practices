@@ -4,16 +4,19 @@ import Home from './components/Home/Home'
 import About from './components/About/About'
 import Contact from './components/Contact/Contact'
 import User from './components/User/User'
+import ErrorPage from './components/ErrorPage/ErrorPage'
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Layout />,
+        errorElement: <ErrorPage />,
         children: [
-            { path: '',        element: <Home /> },
-            { path: 'about',   element: <About /> },
-            { path: 'contact', element: <Contact /> },
+            { path: '',             element: <Home /> },
+            { path: 'about',        element: <About /> },
+            { path: 'contact',      element: <Contact /> },
             { path: 'user/:userid', element: <User /> },
+            { path: '*',            element: <ErrorPage /> },
         ],
     },
 ])
